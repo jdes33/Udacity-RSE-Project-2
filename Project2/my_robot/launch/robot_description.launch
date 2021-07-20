@@ -1,6 +1,16 @@
 <?xml version="1.0"?>
 <launch>
 
+	<!-- Send fake joint values -->
+	<!-- joint_state_publisher: Publishes joint state messages for the robot, such as the angles for the non-fixed joints. -->
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+		<param name="use_gui" value="false"/>
+	</node>
+
+	<!-- Send robot states to tf -->
+	<!-- robot_state_publisher: Publishes the robot's state to tf (transform tree). Your robot model has several frames corresponding to each link/joint. The robot_state_publisher publishes the 3D poses of all of these links. This offers a convenient and efficient advantage, especially for more complicated robots. -->
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+
 	<!-- jason: To generate the URDF file from the Xacro file, you must first define a parameter, robot_description. This parameter will set a single command to use the xacro package to generate the URDF from the xacro file. -->
   <!-- send urdf to param server -->
   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find my_robot)/urdf/my_robot.xacro'" />
