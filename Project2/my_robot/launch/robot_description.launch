@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+	<!-- jason: To generate the URDF file from the Xacro file, you must first define a parameter, robot_description. This parameter will set a single command to use the xacro package to generate the URDF from the xacro file. -->
+  <!-- send urdf to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find my_robot)/urdf/my_robot.xacro'" />
+
+</launch>
