@@ -57,7 +57,6 @@ find_package(catkin REQUIRED COMPONENTS
 add_service_files(
    FILES
    DriveToTarget.srv
-#   Service2.srv
  )
 
 ## Generate actions in the 'action' folder
@@ -211,3 +210,7 @@ include_directories(
 add_executable(drive_bot src/drive_bot.cpp)
 target_link_libraries(drive_bot ${catkin_LIBRARIES})
 add_dependencies(drive_bot drive_bot_generate_messages_cpp)
+
+add_executable(process_image src/process_image.cpp)
+target_link_libraries(process_image ${catkin_LIBRARIES})
+add_dependencies(process_image process_image_generate_messages_cpp)

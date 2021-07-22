@@ -2,6 +2,23 @@
 <!-- jason: this file contains the plugin definitions, this file is imported in the my_robot.xacro file  -->
 <robot>
 
+	<!-- add colours to links made in xacro file -->
+	<gazebo reference="chassis">
+		<material>Gazebo/TurquoiseGlow</material>
+	</gazebo>
+	<gazebo reference="left_wheel">
+		<material>Gazebo/Wood</material>
+	</gazebo>
+	<gazebo reference="right_wheel">
+		<material>Gazebo/Wood</material>
+	</gazebo>
+	<gazebo reference="camera">
+		<material>Gazebo/ZincYellow</material>
+	</gazebo>
+
+
+
+
   <gazebo>
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
       <legacyMode>false</legacyMode>
@@ -9,8 +26,8 @@
       <updateRate>10</updateRate>
       <leftJoint>left_wheel_hinge</leftJoint>
       <rightJoint>right_wheel_hinge</rightJoint>
-      <wheelSeparation>0.4</wheelSeparation>
-      <wheelDiameter>0.2</wheelDiameter>
+      <wheelSeparation>0.5</wheelSeparation>
+      <wheelDiameter>0.3</wheelDiameter>
       <torque>10</torque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
